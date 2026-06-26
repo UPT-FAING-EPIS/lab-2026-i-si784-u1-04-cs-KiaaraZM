@@ -1,0 +1,23 @@
+name: Construcción y despliegue de una aplicación MVC a Azure
+
+env:
+  AZURE_WEBAPP_NAME: upt-awa-XXX  # Aqui va el nombre de su aplicación
+  DOTNET_VERSION: '8'                     # la versión de .NET
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: tfsec
+        run: echo tfsec
