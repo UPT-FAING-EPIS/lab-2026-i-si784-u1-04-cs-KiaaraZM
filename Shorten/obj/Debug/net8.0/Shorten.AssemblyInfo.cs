@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Shorten")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c4e04aa1b829fd2400ad5590a7dc44d39294904")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c0cba510e2173d1fe31027a53beffe688a396ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("Shorten")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Shorten")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

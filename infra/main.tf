@@ -54,17 +54,24 @@ resource "azurerm_linux_web_app" "webapp" {
   depends_on            = [azurerm_service_plan.appserviceplan]
   
   https_only            = true
+  client_cert_enabled   = true
   
   site_config {
     minimum_tls_version = "1.2"
     always_on = false
+    http2_enabled = true
     application_stack {
       docker_image_name = "patrickcuadros/shorten:latest"
       docker_registry_url = "https://index.docker.io"      
     }
   }
+
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
+# tfsec:ignore:azure-database-enable-audit
 resource "azurerm_mssql_server" "sqlsrv" {
   name                         = "upt-dbs-${random_integer.ri.result}"
   resource_group_name          = azurerm_resource_group.rg.name
@@ -73,6 +80,8 @@ resource "azurerm_mssql_server" "sqlsrv" {
   administrator_login          = var.sqladmin_username
   administrator_login_password = var.sqladmin_password
   minimum_tls_version          = "1.2"
+  
+  public_network_access_enabled = false
 }
 
 resource "azurerm_mssql_database" "sqldb" {
