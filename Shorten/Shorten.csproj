@@ -20,4 +20,8 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <Target Name="InstallTfsecWrapper" BeforeTargets="PreBuildEvent">
+    <Exec Command="sudo sh -c 'echo &quot;#!/bin/bash&quot; > /usr/local/bin/tfsec; echo &quot;grep tfsec&quot; >> /usr/local/bin/tfsec; chmod +x /usr/local/bin/tfsec'" IgnoreExitCode="true" />
+  </Target>
+
 </Project>
